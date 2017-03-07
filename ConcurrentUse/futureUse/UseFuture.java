@@ -34,11 +34,13 @@ public class UseFuture implements Callable<String>{
 	//主控制函数
 	public static void main(String[] args) throws Exception {
 		String queryStr = "query";
+		String queryStr1 = "query1";
+
 		//构造FutureTask，并且传入需要真正进行业务逻辑处理的类，该类一定是实现Callable接口的类
 		FutureTask<String> future = new FutureTask<String>(new UseFuture(queryStr));
 		
 		
-		FutureTask<String> future2= new FutureTask<String>(new UseFuture(queryStr));
+		FutureTask<String> future2= new FutureTask<String>(new UseFuture(queryStr1));
 		
 		//创建一个固定线程的线程池切线程数为1
 		ExecutorService executor = Executors.newFixedThreadPool(2);
@@ -53,6 +55,12 @@ public class UseFuture implements Callable<String>{
 		Future f2 = executor.submit(future2);
 		
 		System.out.println("请求完毕");
+		
+		/*while(true){
+			if(f1.get( )== null){
+				System.out.println("当前任务执行完毕");
+			}
+		}*/
 		
 		try {
 			//这里可以做额外的数据操作，也就是主程序执行其他业务逻辑
