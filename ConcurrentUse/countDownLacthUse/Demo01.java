@@ -6,8 +6,14 @@ import java.util.concurrent.CountDownLatch;
  * CountDownLacth
  * @author Administrator
  *	他经常适用于监听某些初始化操作，等初始化完毕后，通知主线程工作
- *
+ *	
  *	zookeeper slor
+ *
+ *	CountDownLatch 与  CyclicBarrier的区别
+ *		CountDownLatch：是一个线程等待其他线程给自己反馈，当达到要求的时候，次线程测执行
+ *
+ *		CyclicBarrier : 是所有线程等待最后一个线程完成，但最后一个任务执行完成，所有的线程则可以
+ *						执行其他任务
  *	
  */
 public class Demo01 {
