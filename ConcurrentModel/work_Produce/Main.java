@@ -1,7 +1,4 @@
 package work_Produce;
-
-
-
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -25,6 +22,8 @@ public class Main {
 		//创建线程池运行。这是一个缓存的线程池，可以创建无穷大的线程，没有任务的时候不创建线程，
 		//空闲时间为60s(默认值)
 		
+		
+		//Executors  submit
 		ExecutorService cachePool = Executors.newCachedThreadPool();
 		cachePool.execute(p1);
 		cachePool.execute(p2);
